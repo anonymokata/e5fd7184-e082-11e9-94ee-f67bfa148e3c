@@ -22,7 +22,7 @@ namespace BabysitterKata.Tests {
             };
 
             foreach (var d in data)
-                Assert.ThrowsException<ArgumentOutOfRangeException>(() => this.sitter.CalculatePay(d, end), $"Start time of {d} is outside the allowed range.");
+                Assert.ThrowsException<ArgumentOutOfRangeException>(() => this.sitter.CalculatePay(d, end), $"Start time of {d} is outside the allowed range, yet passed.");
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace BabysitterKata.Tests {
             };
 
             foreach (var d in data)
-                Assert.ThrowsException<ArgumentOutOfRangeException>(() => this.sitter.CalculatePay(start, d), $"End time of {d} is outside the allowed range.");
+                Assert.ThrowsException<ArgumentOutOfRangeException>(() => this.sitter.CalculatePay(start, d), $"End time of {d} is outside the allowed range, yet passed.");
         }
     }
 }
