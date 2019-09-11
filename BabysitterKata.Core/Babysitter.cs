@@ -10,7 +10,7 @@ namespace BabysitterKata.Core {
 
         }
 
-        public int CalculatePay(TimeSpan startTime, TimeSpan endtime) {
+        public int CalculatePay(Family family, TimeSpan startTime, TimeSpan endtime) {
             return 0;
         }
     }

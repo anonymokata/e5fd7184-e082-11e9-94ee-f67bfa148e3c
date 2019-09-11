@@ -6,9 +6,13 @@ using System.Collections.Generic;
 namespace BabysitterKata.Tests {
     [TestClass]
     public class OutOfRangeHours {
+        private readonly Family family;
         private readonly Babysitter sitter;
 
-        public OutOfRangeHours() => this.sitter = new Babysitter(Babysitter.DefaultStartTime, Babysitter.DefaultEndTime);
+        public OutOfRangeHours() {
+            this.family = Family.GetTestFamily();
+            this.sitter = new Babysitter(Babysitter.DefaultStartTime, Babysitter.DefaultEndTime);
+        }
 
         [TestMethod]
         public void StartHourOutOfRangeThrows() {
@@ -22,7 +26,7 @@ namespace BabysitterKata.Tests {
             };
 
             foreach (var d in data)
-                Assert.ThrowsException<ArgumentOutOfRangeException>(() => this.sitter.CalculatePay(d, end), $"Start time of {d} is outside the allowed range, yet passed.");
+                Assert.ThrowsException<ArgumentOutOfRangeException>(() => this.sitter.CalculatePay(this.family, d, end), $"Start time of {d} is outside the allowed range, yet passed.");
         }
 
         [TestMethod]
@@ -37,7 +41,7 @@ namespace BabysitterKata.Tests {
             };
 
             foreach (var d in data)
-                Assert.ThrowsException<ArgumentOutOfRangeException>(() => this.sitter.CalculatePay(start, d), $"End time of {d} is outside the allowed range, yet passed.");
+                Assert.ThrowsException<ArgumentOutOfRangeException>(() => this.sitter.CalculatePay(this.family, start, d), $"End time of {d} is outside the allowed range, yet passed.");
         }
 
         [TestMethod]
@@ -56,7 +60,7 @@ namespace BabysitterKata.Tests {
 
             foreach (var s in start)
                 foreach (var e in end)
-                    Assert.ThrowsException<ArgumentOutOfRangeException>(() => this.sitter.CalculatePay(s, e), $"Start time of {s} and end time of {e} are outside the allowed range, yet passed.");
+                    Assert.ThrowsException<ArgumentOutOfRangeException>(() => this.sitter.CalculatePay(this.family, s, e), $"Start time of {s} and end time of {e} are outside the allowed range, yet passed.");
         }
     }
 }

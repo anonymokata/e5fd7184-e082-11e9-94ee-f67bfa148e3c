@@ -6,9 +6,13 @@ using System.Collections.Generic;
 namespace BabysitterKata.Tests {
     [TestClass]
     public class InvalidHours {
+        private readonly Family family;
         private readonly Babysitter sitter;
 
-        public InvalidHours() => this.sitter = new Babysitter(Babysitter.DefaultStartTime, Babysitter.DefaultEndTime);
+        public InvalidHours() {
+            this.family = Family.GetTestFamily();
+            this.sitter = new Babysitter(Babysitter.DefaultStartTime, Babysitter.DefaultEndTime);
+        }
 
         [TestMethod]
         public void EndComesBeforeStartThrows() {
@@ -22,7 +26,7 @@ namespace BabysitterKata.Tests {
             };
 
             foreach (var (s, e) in data)
-                Assert.ThrowsException<ArgumentException>(() => this.sitter.CalculatePay(s, e), $"End time of {e} comes before start time of {s}, yet passed");
+                Assert.ThrowsException<ArgumentException>(() => this.sitter.CalculatePay(this.family, s, e), $"End time of {e} comes before start time of {s}, yet passed");
         }
 
         [TestMethod]
@@ -39,7 +43,7 @@ namespace BabysitterKata.Tests {
             };
 
             foreach (var (s, e) in data)
-                Assert.ThrowsException<ArgumentException>(() => this.sitter.CalculatePay(s, e), $"Start time {s} and end time {e} had fractional parts, yet passed");
+                Assert.ThrowsException<ArgumentException>(() => this.sitter.CalculatePay(this.family, s, e), $"Start time {s} and end time {e} had fractional parts, yet passed");
         }
 
         [TestMethod]
@@ -56,7 +60,7 @@ namespace BabysitterKata.Tests {
             };
 
             foreach (var (s, e) in data)
-                Assert.ThrowsException<ArgumentException>(() => this.sitter.CalculatePay(s, e), $"Start time {s} and end time {e} had fractional parts and were swapped, yet passed");
+                Assert.ThrowsException<ArgumentException>(() => this.sitter.CalculatePay(this.family, s, e), $"Start time {s} and end time {e} had fractional parts and were swapped, yet passed");
         }
     }
 }
