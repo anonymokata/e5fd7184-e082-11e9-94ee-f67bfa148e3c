@@ -1,6 +1,7 @@
 using BabysitterKata.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BabysitterKata.Tests {
     [TestClass]
@@ -23,8 +24,8 @@ namespace BabysitterKata.Tests {
 
         [TestMethod]
         public void PayIsPositive() {
-            foreach (var d in this.families)
-                foreach (var p in d.PayScale)
+            foreach (var f in this.families)
+                foreach (var p in f.PayScale)
                 Assert.IsTrue(p.Pay > 0, $"Family {f.Name} has no payscale.");
         }
     }
