@@ -7,6 +7,8 @@ namespace BabysitterKata.Core {
         public int Pay { get; private set; }
 
         public PayEntry(TimeSpan startTime, int pay) {
+            if (pay <= 0) throw new ArgumentOutOfRangeException(nameof(pay));
+
             this.StartTime = startTime;
             this.Pay = pay;
         }
@@ -16,9 +18,11 @@ namespace BabysitterKata.Core {
         public string Name { get; private set; }
         public IReadOnlyList<PayEntry> PayScale { get; private set; }
 
-        private Family(string name, IReadOnlyList<PayEntry> payScale) {
-            this.Name = name;
-            this.PayScale = payScale;
+        public Family(string name, IReadOnlyList<PayEntry> payScale) {
+            this.Name = name ?? throw new ArgumentNullException(nameof(name));
+            this.PayScale = payScale ?? throw new ArgumentNullException(nameof(payScale));
+
+            if (payScale.Count == 0) throw new ArgumentException("Scale must have at least one entry.", nameof(payScale));
         }
 
         //TODO This is better abstracted out into a data store
