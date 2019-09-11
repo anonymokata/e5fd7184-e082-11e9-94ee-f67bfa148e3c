@@ -39,5 +39,24 @@ namespace BabysitterKata.Tests {
             foreach (var d in data)
                 Assert.ThrowsException<ArgumentOutOfRangeException>(() => this.sitter.CalculatePay(start, d), $"End time of {d} is outside the allowed range, yet passed.");
         }
+
+        [TestMethod]
+        public void StartAndEndOutOfRangeThrows() {
+            var start = new List<TimeSpan> {
+                new TimeSpan(6, 0, 0),
+                new TimeSpan(12, 0, 0),
+                new TimeSpan(16, 0, 0),
+            };
+
+            var end = new List<TimeSpan> {
+                new TimeSpan(5, 0, 0),
+                new TimeSpan(12, 0, 0),
+                new TimeSpan(13, 0, 0),
+            };
+
+            foreach (var s in start)
+                foreach (var e in end)
+                    Assert.ThrowsException<ArgumentOutOfRangeException>(() => this.sitter.CalculatePay(s, e), $"Start time of {s} and end time of {e} are outside the allowed range, yet passed.");
+        }
     }
 }
