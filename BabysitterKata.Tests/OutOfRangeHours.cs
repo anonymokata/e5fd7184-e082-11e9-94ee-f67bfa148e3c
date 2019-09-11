@@ -1,3 +1,4 @@
+using BabysitterKata.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -5,9 +6,9 @@ using System.Collections.Generic;
 namespace BabysitterKata.Tests {
     [TestClass]
     public class OutOfRangeHours {
-        private readonly BabySitter sitter;
+        private readonly Babysitter sitter;
 
-        public OutOfRangeHours() => this.sitter = BabySitter.GetDefault();
+        public OutOfRangeHours() => this.sitter = Babysitter.GetDefault();
 
         [TestMethod]
         public void StartHourOutOfRangeThrows() {
