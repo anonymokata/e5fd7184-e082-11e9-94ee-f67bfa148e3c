@@ -8,7 +8,7 @@ namespace BabysitterKata.Tests {
     public class OutOfRangeHours {
         private readonly Babysitter sitter;
 
-        public OutOfRangeHours() => this.sitter = Babysitter.GetDefault();
+        public OutOfRangeHours() => this.sitter = new Babysitter(new TimeSpan(17, 0, 0), new TimeSpan(4, 0, 0));
 
         [TestMethod]
         public void StartHourOutOfRangeThrows() {

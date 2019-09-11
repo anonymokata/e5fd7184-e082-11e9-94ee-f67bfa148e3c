@@ -8,7 +8,7 @@ namespace BabysitterKata.Tests {
     public class InvalidHours {
         private readonly Babysitter sitter;
 
-        public InvalidHours() => this.sitter = Babysitter.GetDefault();
+        public InvalidHours() => this.sitter = new Babysitter(new TimeSpan(17, 0, 0), new TimeSpan(4, 0, 0));
 
         [TestMethod]
         public void EndComesBeforeStartThrows() {
