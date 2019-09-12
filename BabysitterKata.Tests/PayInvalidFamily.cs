@@ -2,7 +2,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BabysitterKata.Tests {
     [TestClass]
@@ -28,6 +27,13 @@ namespace BabysitterKata.Tests {
 
             Assert.ThrowsException<ArgumentNullException>(() => new Family("A", null), "Null payscale does not throw");
             Assert.ThrowsException<ArgumentException>(() => new Family("A", new List<PayEntry>()), "Empty payscale does not throw");
+
+            Assert.ThrowsException<ArgumentException>(() => new Family("A", new List<PayEntry> {
+                new PayEntry(new TimeSpan(20, 0, 0), 1),
+                new PayEntry(new TimeSpan(22, 0, 0), 1),
+                new PayEntry(new TimeSpan(21, 0, 0), 1),
+                new PayEntry(new TimeSpan(23, 0, 0), 1),
+            }), "Unsorted payscale does not throw");
         }
     }
 }

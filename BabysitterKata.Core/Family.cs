@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BabysitterKata.Core {
     public class PayEntry {
@@ -23,6 +24,10 @@ namespace BabysitterKata.Core {
             this.PayScale = payScale ?? throw new ArgumentNullException(nameof(payScale));
 
             if (payScale.Count == 0) throw new ArgumentException("Scale must have at least one entry.", nameof(payScale));
+
+            for (var i = 1; i < payScale.Count; i++)
+                if (payScale[i].StartTime <= payScale[i - 1].StartTime)
+                    throw new ArgumentException("Scale is not sorted", nameof(payScale));
         }
 
         //TODO This is better abstracted out into a data store
