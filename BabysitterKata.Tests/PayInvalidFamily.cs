@@ -46,6 +46,13 @@ namespace BabysitterKata.Tests {
                 new PayEntry(new TimeSpan(20, 0, 0), 1),
                 new PayEntry(new TimeSpan(19, 0, 0), 1),
             }), "Unsorted payscale does not throw");
+
+            var f = new Family("A", new List<PayEntry> {
+                new PayEntry(new TimeSpan(20, 0, 0), 1),
+                new PayEntry(new TimeSpan(19, 0, 0), 1),
+            });
+
+            Assert.IsTrue(f.Name == "A" && f.PayScale.Count == 2, "Correct payscale fails to construct properly");
         }
     }
 }
