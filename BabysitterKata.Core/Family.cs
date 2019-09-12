@@ -24,7 +24,7 @@ namespace BabysitterKata.Core {
             new Family("B", new List<PayEntry> {
                 new PayEntry(new TimeSpan(17, 0, 0), 12),
                 new PayEntry(new TimeSpan(22, 0, 0), 8),
-                new PayEntry(new TimeSpan(0, 0, 0), 16),
+                new PayEntry(new TimeSpan(24, 0, 0), 16),
             }),
             new Family("C", new List<PayEntry> {
                 new PayEntry(new TimeSpan(17, 0, 0), 21),
@@ -42,18 +42,9 @@ namespace BabysitterKata.Core {
             if (payScale.Count == 0) throw new ArgumentException("Scale must have at least one entry.", nameof(payScale));
             if (payScale.Any(p => p.StartTime.Ticks < 0)) throw new ArgumentException("Scale cannot have negative times.", nameof(payScale));
 
-            var crossedMidnight = false;
             for (var i = 1; i < payScale.Count; i++) {
-                var comesAfter = payScale[i - 1].StartTime < payScale[i].StartTime;
-
-                if (!comesAfter) {
-                    if (!crossedMidnight) {
-                        crossedMidnight = true;
-                    }
-                    else {
-                        throw new ArgumentException("Scale is not sorted", nameof(payScale));
-                    }
-                }
+                if (payScale[i - 1].StartTime >= payScale[i].StartTime)
+                    throw new ArgumentException("Scale is not sorted", nameof(payScale));
             }
         }
 

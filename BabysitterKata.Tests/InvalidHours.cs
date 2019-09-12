@@ -18,11 +18,11 @@ namespace BabysitterKata.Tests {
         public void EndComesBeforeStartThrows() {
             var data = new List<(TimeSpan, TimeSpan)> {
                 (new TimeSpan(23, 0, 0), new TimeSpan(22, 0, 0)),
-                (new TimeSpan(0, 0, 0), new TimeSpan(22, 0, 0)),
-                (new TimeSpan(3, 0, 0), new TimeSpan(2, 0, 0)),
-                (new TimeSpan(2, 0, 0), new TimeSpan(22, 0, 0)),
-                (new TimeSpan(0, 0, 0), new TimeSpan(22, 0, 0)),
-                (new TimeSpan(1, 0, 0), new TimeSpan(0, 0, 0)),
+                (new TimeSpan(24, 0, 0), new TimeSpan(22, 0, 0)),
+                (new TimeSpan(27, 0, 0), new TimeSpan(26, 0, 0)),
+                (new TimeSpan(26, 0, 0), new TimeSpan(22, 0, 0)),
+                (new TimeSpan(24, 0, 0), new TimeSpan(22, 0, 0)),
+                (new TimeSpan(25, 0, 0), new TimeSpan(24, 0, 0)),
             };
 
             foreach (var (s, e) in data)
@@ -32,13 +32,13 @@ namespace BabysitterKata.Tests {
         [TestMethod]
         public void FractionalHoursThrows() {
             var data = new List<(TimeSpan, TimeSpan)> {
-                (new TimeSpan(22, 5, 0), new TimeSpan(1, 23, 0)),
-                (new TimeSpan(23, 9, 25), new TimeSpan(2, 45, 33)),
+                (new TimeSpan(22, 5, 0), new TimeSpan(25, 23, 0)),
+                (new TimeSpan(23, 9, 25), new TimeSpan(26, 45, 33)),
                 (new TimeSpan(18, 12, 0), new TimeSpan(22, 0, 0)),
                 (new TimeSpan(19, 34, 12), new TimeSpan(23, 0, 0)),
-                (new TimeSpan(20, 4, 0), new TimeSpan(0, 5, 0)),
+                (new TimeSpan(20, 4, 0), new TimeSpan(24, 5, 0)),
                 (new TimeSpan(21, 5, 6), new TimeSpan(23, 56, 34)),
-                (new TimeSpan(20, 0, 0), new TimeSpan(0, 5, 0)),
+                (new TimeSpan(20, 0, 0), new TimeSpan(24, 5, 0)),
                 (new TimeSpan(21, 0, 0), new TimeSpan(23, 56, 34)),
             };
 

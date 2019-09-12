@@ -16,13 +16,11 @@ namespace BabysitterKata.Tests {
 
         [TestMethod]
         public void StartHourOutOfRangeThrows() {
-            var end = new TimeSpan(3, 0, 0);
+            var end = new TimeSpan(27, 0, 0);
             var data = new List<TimeSpan> {
                 new TimeSpan(6, 0, 0),
                 new TimeSpan(12, 0, 0),
                 new TimeSpan(16, 0, 0),
-                new TimeSpan(15, 0, 0),
-                new TimeSpan(7, 0, 0),
             };
 
             foreach (var d in data)
@@ -31,13 +29,11 @@ namespace BabysitterKata.Tests {
 
         [TestMethod]
         public void EndHourOutOfRangeThrows() {
-            var start = new TimeSpan(3, 0, 0);
+            var start = new TimeSpan(17, 0, 0);
             var data = new List<TimeSpan> {
-                new TimeSpan(5, 0, 0),
-                new TimeSpan(12, 0, 0),
-                new TimeSpan(13, 0, 0),
-                new TimeSpan(11, 0, 0),
-                new TimeSpan(10, 0, 0),
+                new TimeSpan(29, 0, 0),
+                new TimeSpan(31, 0, 0),
+                new TimeSpan(50, 0, 0),
             };
 
             foreach (var d in data)
@@ -48,14 +44,12 @@ namespace BabysitterKata.Tests {
         public void StartAndEndOutOfRangeThrows() {
             var start = new List<TimeSpan> {
                 new TimeSpan(6, 0, 0),
-                new TimeSpan(12, 0, 0),
-                new TimeSpan(16, 0, 0),
+                new TimeSpan(14, 0, 0),
             };
 
             var end = new List<TimeSpan> {
-                new TimeSpan(5, 0, 0),
-                new TimeSpan(12, 0, 0),
-                new TimeSpan(13, 0, 0),
+                new TimeSpan(29, 0, 0),
+                new TimeSpan(45, 0, 0),
             };
 
             foreach (var s in start)
