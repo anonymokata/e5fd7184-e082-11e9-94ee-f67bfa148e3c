@@ -18,16 +18,16 @@ namespace BabysitterKata.Core {
     public class Family {
         private static readonly List<Family> families = new List<Family> {
             new Family("A", new List<PayEntry> {
-                new PayEntry(new TimeSpan(5, 0, 0), 15),
+                new PayEntry(new TimeSpan(17, 0, 0), 15),
                 new PayEntry(new TimeSpan(23, 0, 0), 20),
             }),
             new Family("B", new List<PayEntry> {
-                new PayEntry(new TimeSpan(5, 0, 0), 12),
+                new PayEntry(new TimeSpan(17, 0, 0), 12),
                 new PayEntry(new TimeSpan(22, 0, 0), 8),
                 new PayEntry(new TimeSpan(0, 0, 0), 16),
             }),
             new Family("C", new List<PayEntry> {
-                new PayEntry(new TimeSpan(5, 0, 0), 21),
+                new PayEntry(new TimeSpan(17, 0, 0), 21),
                 new PayEntry(new TimeSpan(21, 0, 0), 15),
             }),
         };
