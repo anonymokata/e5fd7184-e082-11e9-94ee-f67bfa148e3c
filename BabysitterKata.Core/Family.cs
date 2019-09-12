@@ -42,7 +42,7 @@ namespace BabysitterKata.Core {
             if (payScale.Count == 0) throw new ArgumentException("Scale must have at least one entry.", nameof(payScale));
             if (payScale.Any(p => p.StartTime.Ticks < 0)) throw new ArgumentException("Scale cannot have negative times.", nameof(payScale));
 
-            var crossedMidnight = payScale[0].StartTime >= new TimeSpan(0, 0, 0);
+            var crossedMidnight = false;
             for (var i = 1; i < payScale.Count; i++) {
                 var comesAfter = payScale[i - 1].StartTime < payScale[i].StartTime;
 
