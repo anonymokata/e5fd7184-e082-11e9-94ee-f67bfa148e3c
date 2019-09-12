@@ -29,6 +29,16 @@ namespace BabysitterKata.Tests {
             Assert.ThrowsException<ArgumentException>(() => new Family("A", new List<PayEntry>()), "Empty payscale does not throw");
 
             Assert.ThrowsException<ArgumentException>(() => new Family("A", new List<PayEntry> {
+                new PayEntry(new TimeSpan(-1, 0, 0), 1),
+                new PayEntry(new TimeSpan(19, 0, 0), 1),
+            }), "Negative payscale does not throw");
+
+            Assert.ThrowsException<ArgumentException>(() => new Family("A", new List<PayEntry> {
+                new PayEntry(new TimeSpan(-2, 0, 0), 1),
+                new PayEntry(new TimeSpan(-1, 0, 0), 1),
+            }), "Negative payscale does not throw");
+
+            Assert.ThrowsException<ArgumentException>(() => new Family("A", new List<PayEntry> {
                 new PayEntry(new TimeSpan(20, 0, 0), 1),
                 new PayEntry(new TimeSpan(22, 0, 0), 1),
                 new PayEntry(new TimeSpan(21, 0, 0), 1),
