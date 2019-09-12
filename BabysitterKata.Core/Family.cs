@@ -48,6 +48,12 @@ namespace BabysitterKata.Core {
             }
         }
 
+        public PayEntry FindPayEntryAtTime(TimeSpan time) {
+            var idx = this.PayScale.TakeWhile(p => p.StartTime < time).Count();
+
+            return this.PayScale[idx - 1];
+        }
+
         //TODO This is better abstracted out into a data store
         public static List<Family> GetFamilies() => Family.families;
         public static Family GetFamily(string name) => Family.GetFamilies().SingleOrDefault(f => f.Name == name);

@@ -24,11 +24,11 @@ namespace BabysitterKata.Core {
 
             if (endtime < startTime) throw new ArgumentException("End is before start");
 
-            for (var current = startTime.TotalHours; current < endtime.TotalHours; current++) {
+            var pay = 0;
+            for (var current = startTime.TotalHours + 1; current <= endtime.TotalHours; current++)
+                pay += family.FindPayEntryAtTime(TimeSpan.FromHours(current)).Pay;
 
-            }
-
-            return 0;
+            return pay;
         }
     }
 }
