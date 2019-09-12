@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29230.61
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabysitterKata.Cli", "BabysitterKata.Cli\BabysitterKata.Cli.csproj", "{6369A304-CB1E-40F3-8475-88A43811A65C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BabysitterKata.Core", "BabysitterKata.Core\BabysitterKata.Core.csproj", "{06F29690-D105-45B6-BF33-AAB82C1E314D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabysitterKata.Core", "BabysitterKata.Core\BabysitterKata.Core.csproj", "{06F29690-D105-45B6-BF33-AAB82C1E314D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BabysitterKata.Tests", "BabysitterKata.Tests\BabysitterKata.Tests.csproj", "{42C0DF71-CB70-4165-8DDA-EB93A294BD84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BabysitterKata.Tests", "BabysitterKata.Tests\BabysitterKata.Tests.csproj", "{42C0DF71-CB70-4165-8DDA-EB93A294BD84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6369A304-CB1E-40F3-8475-88A43811A65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6369A304-CB1E-40F3-8475-88A43811A65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6369A304-CB1E-40F3-8475-88A43811A65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6369A304-CB1E-40F3-8475-88A43811A65C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{06F29690-D105-45B6-BF33-AAB82C1E314D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{06F29690-D105-45B6-BF33-AAB82C1E314D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06F29690-D105-45B6-BF33-AAB82C1E314D}.Release|Any CPU.ActiveCfg = Release|Any CPU
