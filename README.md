@@ -14,7 +14,7 @@ To test, do the following from the project root:
 PS C:\BabysitterKata> dotnet test
 ```
 
-This will build the projects and run the test. You should see output like the following:
+This will build the projects and run the tests. You should see output like the following:
 
 ```
 Starting test execution, please wait...
