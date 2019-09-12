@@ -32,6 +32,7 @@ namespace BabysitterKata.Core {
 
         //TODO This is better abstracted out into a data store
         public static List<Family> GetFamilies() => throw new NotImplementedException();
+        public static Family GetFamily(string name) => throw new NotImplementedException();
         public static Family GetTestFamily() => throw new NotImplementedException();
     }
 }
