@@ -26,7 +26,7 @@ namespace BabysitterKata.Tests {
         public void PayIsPositive() {
             foreach (var f in this.families)
                 foreach (var p in f.PayScale)
-                Assert.IsTrue(p.Pay > 0, $"Family {f.Name} has no payscale.");
+                    Assert.IsTrue(p.Pay > 0, $"Family {f.Name} has non-positive pay.");
         }
     }
 }
