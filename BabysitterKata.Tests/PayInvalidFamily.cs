@@ -32,7 +32,19 @@ namespace BabysitterKata.Tests {
                 new PayEntry(new TimeSpan(20, 0, 0), 1),
                 new PayEntry(new TimeSpan(22, 0, 0), 1),
                 new PayEntry(new TimeSpan(21, 0, 0), 1),
-                new PayEntry(new TimeSpan(23, 0, 0), 1),
+                new PayEntry(new TimeSpan(1, 0, 0), 1),
+            }), "Unsorted payscale does not throw");
+
+            Assert.ThrowsException<ArgumentException>(() => new Family("A", new List<PayEntry> {
+                new PayEntry(new TimeSpan(20, 0, 0), 1),
+                new PayEntry(new TimeSpan(22, 0, 0), 1),
+                new PayEntry(new TimeSpan(1, 0, 0), 1),
+                new PayEntry(new TimeSpan(0, 0, 0), 1),
+            }), "Unsorted payscale does not throw");
+
+            Assert.ThrowsException<ArgumentException>(() => new Family("A", new List<PayEntry> {
+                new PayEntry(new TimeSpan(20, 0, 0), 1),
+                new PayEntry(new TimeSpan(19, 0, 0), 1),
             }), "Unsorted payscale does not throw");
         }
     }
