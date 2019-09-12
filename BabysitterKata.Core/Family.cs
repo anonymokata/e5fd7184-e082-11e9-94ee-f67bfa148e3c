@@ -16,6 +16,22 @@ namespace BabysitterKata.Core {
     }
 
     public class Family {
+        private static readonly List<Family> families = new List<Family> {
+            new Family("A", new List<PayEntry> {
+                new PayEntry(new TimeSpan(5, 0, 0), 15),
+                new PayEntry(new TimeSpan(23, 0, 0), 20),
+            }),
+            new Family("B", new List<PayEntry> {
+                new PayEntry(new TimeSpan(5, 0, 0), 12),
+                new PayEntry(new TimeSpan(22, 0, 0), 8),
+                new PayEntry(new TimeSpan(0, 0, 0), 16),
+            }),
+            new Family("C", new List<PayEntry> {
+                new PayEntry(new TimeSpan(5, 0, 0), 21),
+                new PayEntry(new TimeSpan(21, 0, 0), 15),
+            }),
+        };
+
         public string Name { get; private set; }
         public IReadOnlyList<PayEntry> PayScale { get; private set; }
 
@@ -31,8 +47,8 @@ namespace BabysitterKata.Core {
         }
 
         //TODO This is better abstracted out into a data store
-        public static List<Family> GetFamilies() => throw new NotImplementedException();
-        public static Family GetFamily(string name) => throw new NotImplementedException();
-        public static Family GetTestFamily() => throw new NotImplementedException();
+        public static List<Family> GetFamilies() => Family.families;
+        public static Family GetFamily(string name) => Family.GetFamilies().SingleOrDefault(f => f.Name == name);
+        public static Family GetTestFamily() => Family.GetFamilies().First();
     }
 }
