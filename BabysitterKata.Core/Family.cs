@@ -41,9 +41,19 @@ namespace BabysitterKata.Core {
 
             if (payScale.Count == 0) throw new ArgumentException("Scale must have at least one entry.", nameof(payScale));
 
-            for (var i = 1; i < payScale.Count; i++)
-                if (payScale[i].StartTime <= payScale[i - 1].StartTime)
-                    throw new ArgumentException("Scale is not sorted", nameof(payScale));
+            var crossedMidnight = payScale[0].StartTime >= new TimeSpan(0, 0, 0);
+            for (var i = 1; i < payScale.Count; i++) {
+                var comesAfter = payScale[i - 1].StartTime < payScale[i].StartTime;
+
+                if (!comesAfter) {
+                    if (!crossedMidnight) {
+                        crossedMidnight = true;
+                    }
+                    else {
+                        throw new ArgumentException("Scale is not sorted", nameof(payScale));
+                    }
+                }
+            }
         }
 
         //TODO This is better abstracted out into a data store
