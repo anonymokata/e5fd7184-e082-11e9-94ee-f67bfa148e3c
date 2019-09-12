@@ -6,9 +6,9 @@ One thing to note is that times are represented internally as continuous counts,
 
 ## Testing
 
-To run this, you need .NET Core 2.2. All other dependencies will be installed from NuGet as normal for .NET Core.
+To run this, you need .NET Core 2.2. All other dependencies will be installed from NuGet as normal for .NET Core. You can find resources on getting started with .NET Core at https://dotnet.microsoft.com/.
 
-To test, do the following from the project root:
+To test, clone the repo and then do the following from the project root:
 
 ```
 PS C:\BabysitterKata> dotnet test
